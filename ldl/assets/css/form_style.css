@@ -6,29 +6,24 @@ body{
 .container{ 
 	background:rgba(0,0,0,0.6); 
 	color:white;
-	padding:2.5rem;
-	font-size: 1.7rem; 
-	text-transform: capitalize;
+	padding:30px;
+	font-size: 16px; 
 	} 
 	
 .container h1{
-	font-size:3rem;
+	font-size:30px;
 	text-align:center;
 	margin-top:0;
-	margin-bottom:1rem;
+	margin-bottom:20px;
 	text-decoration: underline;
-	padding-bottom:1rem;
-	text-transform: uppercase;
+	padding-bottom:20px;
 	}
 
 .container .btn{
-	font-size:1.7rem;
+	font-size:20px;
 	background-color:#3594d8;
 }
 .container .form-control {
-	
-	font-size: 1.7rem;
-}
-.container #button{
-	margin-left:1.8rem;
+	margin-left: 5px;
+	font-size: 19px;
 }

@@ -19,8 +19,6 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="assets/css/form_style.css">
-		<link href="assets/css/footer.css" rel="stylesheet">
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -37,9 +35,7 @@
 			if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				$camp = $_POST['camp'];
 				global $name ;
-				global $Id ;
 				$name = $_POST['name'];
-				$Id = $_POST['Id'];
 				$year = date("Y"); 
 			//      mkdir($year);
 			//  mkdir("$year/$camp");
@@ -50,7 +46,6 @@
 				{
 					$datae=array();
 					$datae[]=array(
-						'Id' => $_POST['Id'],
 						'Name' => $_POST['name'],
 						'class' => $_POST['class'],
 						'school' => $_POST['school'],
@@ -66,7 +61,7 @@
         		return json_encode($datae);
     		}
 
-			$file_name=$name . '_' . $Id . '.txt';
+			$file_name=$name . '.txt';
 			if(file_put_contents("$year/$camp/$file_name",get_data()))
 			{
 			echo '<div class="alert alert-success alert-dismissible" role="alert">
@@ -90,46 +85,46 @@
     </script>
       
 <!-- Registration -->
-	<div class="container">
-		<h1>Registration Form</h1>
-		<form action="form2.php" method="post">
-			<div class="row">
-				<div class="col-sm-6">
-					<div class="form-group">
-						<label for="inpname" class="control-label">Full Name:</label>
-							<input 
-								type="text"
-								class="form-control"
-								id="inpname"
-								name="name"
-								required
-							/>
-					</div>
-				</div>
-				<div class="col-sm-6">
-					<div class="form-group">
-						<label for="inpgender" class="control-label" required>Gender:</label>
-						<div>
-							<label for="inpmale" class="radio-inline">
-								<input
-									type="radio"
-									name="gender"  
-									value="gender"
-									id="inpmale"
-								/>
-							Male</label>
-							<label for="inpfemale" class="radio-inline">
-								<input
-									type="radio"
-									name="gender"
-									value="gender"
-									id="inpfemale"
-								/>
-							Female</label>
+				<div class="container">
+					<h1>Registration Form</h1>
+					<form action="form2.php" method="post">
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label for="inpname" class="control-label">Full Name:</label>
+									<input 
+										type="text"
+										class="form-control"
+										id="inpname"
+										name="name"
+										required
+									/>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label for="inpgender" class="control-label" required>Gender:</label>
+									<div>
+										<label for="inpmale" class="radio-inline">
+										<input
+											type="radio"
+											name="gender"  
+											value="m"
+											id="inpmale"
+										/>
+										Male</label>
+										<label for="inpfemale" class="radio-inline">
+										<input
+											type="radio"
+											name="gender"
+											value="f"
+											id="inpfemale"
+										/>
+										Female</label>
+									</div>
+								</div>
+							</div>
 						</div>
-					</div>
-				</div>
-			</div>
 				<div class="row">
 					<div class="col-xs-6">
 						<label for="inpdob" class="control-label" required>Date Of Birth:</label>
@@ -142,20 +137,6 @@
 					</div>
 					<div class="col-xs-6">
 						<div class="form-group">
-							<label for="inpId" class="control-label">Id:</label>
-							<input
-								type="text"
-								class="form-control"
-								id="inpId"
-								name="Id"
-								placeholder="LDL Id"
-							/>
-						</div>						
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-sm-6">
-						<div class="form-group">							
 							<label for="inpclass" class="control-label" >Class:</label>
 							<input required
 								type="text"
@@ -165,19 +146,17 @@
 								placeholder="eg. 2"
 								title="Please add class accordingly"
 							/>
-						</div>						
-					</div>
-					<div class="col-sm-6">
-						<div class="form-group">
-							<label for="inpschool" class="control-label">School:</label>
-							<input
-								type="text"
-								class="form-control"
-								id="inpschool"
-								name="school"
-							/>
 						</div>
 					</div>
+				</div>
+				<div class="form-group">
+					<label for="inpschool" class="control-label">School:</label>
+					<input
+						type="text"
+						class="form-control"
+						id="inpschool"
+						name="school"
+					/>
 				</div>
 				<div class="row">
 					<div class="col-sm-6">
@@ -259,12 +238,11 @@
 					</div>
 				</div>
 				<br>
-				<div class="form-group" id="button">
+				<div class="form-group ">
 					<input type="Submit" class="btn btn-primary" />&nbsp;&nbsp;&nbsp;&nbsp;
 					<button type="button" name="Get Details" class="btn btn-primary" onclick='document.location="getdetails.php"'>Get Details</button>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
 				</div>
 			</form>
 		</div>
-		<?php require 'footer.html'?>
     </body>
 </html>

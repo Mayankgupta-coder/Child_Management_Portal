@@ -2,50 +2,45 @@ body{
     font-family:  Verdana, "Open Sans", Helvetica, Arial;
     background: url('/ldl/images/front.jpg') fixed no-repeat;
     background-size: 100% 100%;
-    font-size: 1rem;
+    font-size: 16px;
     }
 .modal .modal-dialog .modal-content .modal-header .modal-title{
-    font-size:1.6rem;
+    font-size:18px;
     text-align: center;
 }
 .modal .modal-dialog .modal-content .modal-body .contact-form input{    
-    width:40rem;
-    margin:1rem;
-    font-size:1.6rem;
+    width:400px;
+    margin:8px;
+    font-size:16px;
 }
 .modal .modal-dialog .modal-content button{
-    font-size:1.6rem;
+    font-size:18px;
 }
 .searchBox{    
     float: right;
-    width: 28rem;   
+    width: 270px;   
     }
 .searchBox input{
-    font-size: 1.2rem;
-    margin-right: 5px;
-}
-.searchBox #search{
-    color:white;
-}
-.searchBox #search:hover{
-    color: white;
+    font-size: 12.5px;
+    margin-right: 6px;
 }
 .container-fluid{
-    background:rgba(0,0,0,0.7); 
+    background:rgba(0,0,0,0.6); 
     color:white;
-    text-align: center; 
-    margin-top: 6rem;
-    
+    text-align: center;
+    font-size: 17px; 
+    margin-top: 60px;
+    padding: 10px;       
     }
 
 table tbody tr{
     color: rgb(2, 189, 252);
-    font-size: 1.6rem;
+    font-size: 18px;
     }
 
 table thead th{
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 18px;
     color: white;
     }
 
@@ -55,3 +50,13 @@ table thead th{
     
     }
 
+.footer{
+    height: 55px;   
+    position: absolute;
+    bottom: 0px; 
+    width: 100%;
+    background: rgba(0,0,0,0.8); 
+    color: white;    
+    padding: 20px 30px;     
+    margin-top: 15px 
+    } 

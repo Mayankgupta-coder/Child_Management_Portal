@@ -1,0 +1,1 @@
+[{"Name":"Sanidhya Jain","class":"9","school":"SMA","camp":"Unnati","contact":"6512837218","Gender":"m","DOB":"2\/11\/1998","Fathers_Name":"Ram Prakash","Fathers_Occupation":"Business","Mothers_Name":"Rashmi Sharma","Mothers_Occupation":"Housewife"}]

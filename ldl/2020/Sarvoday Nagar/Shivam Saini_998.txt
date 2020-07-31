@@ -1,1 +1,0 @@
-[{"Id":"998","Name":"Shivam Saini","class":"3","school":"LMA","camp":"Sarvoday Nagar","contact":"8721368321","Gender":"gender","DOB":"2014-08-24","Fathers_Name":"Amar Saini","Fathers_Occupation":"Rickshaw Driver","Mothers_Name":"Lata Saini","Mothers_Occupation":"Housewife"}]
