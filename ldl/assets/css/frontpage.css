@@ -1,0 +1,57 @@
+body{
+    font-family:  Verdana, "Open Sans", Helvetica, Arial;
+    background: url('/ldl/images/front.jpg') fixed no-repeat;
+    background-size: 100% 100%;
+    font-size: 1rem;
+    }
+.modal .modal-dialog .modal-content .modal-header .modal-title{
+    font-size:1.6rem;
+    text-align: center;
+}
+.modal .modal-dialog .modal-content .modal-body .contact-form input{    
+    width:40rem;
+    margin:1rem;
+    font-size:1.6rem;
+}
+.modal .modal-dialog .modal-content button{
+    font-size:1.6rem;
+}
+.searchBox{    
+    float: right;
+    width: 28rem;   
+    }
+.searchBox input{
+    font-size: 1.2rem;
+    margin-right: 5px;
+}
+.searchBox #search{
+    color:white;
+}
+.searchBox #search:hover{
+    color: white;
+}
+.container-fluid{
+    background:rgba(0,0,0,0.7); 
+    color:white;
+    text-align: center; 
+    margin-top: 6rem;
+    
+    }
+
+table tbody tr{
+    color: rgb(2, 189, 252);
+    font-size: 1.6rem;
+    }
+
+table thead th{
+    text-align: center;
+    font-size: 1.8rem;
+    color: white;
+    }
+
+#tbltable tbody tr:hover{
+        background-color: white;
+        color: rgb(0, 119, 255);
+    
+    }
+
