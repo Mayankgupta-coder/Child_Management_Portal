@@ -13,6 +13,7 @@
 ?>
 <?php
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $id = $_POST['Id'];
         $name = $_POST['name'];
         $dob = $_POST['dob'];
         $class = $_POST['class'];
@@ -33,6 +34,7 @@
     function get_data(){
         $datae=array();
         $datae[]=array(
+            'Id' => $_POST['Id'],
             'Name' => $_POST['name'],
             'class' => $_POST['class'],
             'school' => $_POST['school'],
@@ -47,16 +49,18 @@
         return json_encode($datae);
     }
 
-    $file_name=$name . '.txt';
+    $file_name=$name .'_'.$id.'.txt';
     if(file_put_contents("$year/$camp/$file_name",get_data())){
-        echo '<div class="alert alert-success alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <p>Details added succesfully</p>
-            </div>';
+        echo "<script>alert('Details added succesfully')</script>";
+        // echo '<div class="alert alert-success alert-dismissible" role="alert">
+        //     <button type="button" class="close" data-dismiss="alert">&times;</button>
+        //     <p>Details added succesfully</p>
+        //     </div>';
     }
      
     else{
-        echo 'There is some error';
+        echo "<script>alert('There is some error')</script>";
+        //echo 'There is some error';
         }
     }
     ?>
@@ -68,9 +72,11 @@
     <meta charset="UTF-8">
     <title>Get Detail</title>
     <title>Welcome-<?php $_SESSION['username']?></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/getdetails.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="assets/css/footer.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -83,18 +89,19 @@
         <input type="text" class="btn btn-light" id="inpsearch" placeholder="SEARCH" /><br>
         <div class="container-fluid">       
             <h1>Student Details</h1>                 
-        <table id='tbltable' class="table table-bordered table-hover">
+        <table id='tbltable' class="table table-bordered">
             <tr class="text-light">
-                <th>Name</th>
-                <th>Date of birth</th>
-                <th>Class</th>
-                <th>School</th>
-                <th>Contact</th>
-                <th>Camp</th>
-                <th>Father's Name</th>
-                <th>Father's Occupation</th>
-                <th>Mother's Name</th>
-                <th>Mother's Occupation</th>
+                  <th class="tdId">Id</th>
+                <th class="tdname">Name</th>
+                <th class="tdDOB">Date of birth</th>
+                <th class="tdclass">Class</th>
+                <th class="tdschool">School</th>
+                <th class="tdcontact">Contact</th>
+                <th class="tdcamp">Camp</th>
+                <th class="tdfather">Father's Name</th>
+                <th class="tdfatheroccupation">Father's Occupation</th>
+                <th class="tdmother">Mother's Name</th>
+                <th class="tdmotheroccupation">Mother's Occupation</th>
                 <th>Update</th>
             </tr>
             <?php
@@ -119,6 +126,7 @@
                                                                 $.each(data, function(key, value) {
                                                                     student+='<tbody id="tbltbody">';
                                                                     student += '<tr>';
+                                                                    student += '<td class="tdId">' + value.Id + '</td>';
                                                                     student += '<td class="tdname">' + value.Name + '</td>';
                                                                     student += '<td class="tdDOB">' + value.DOB + '</td>';
                                                                     student += '<td class="tdclass">' + value.class + '</td>';
@@ -129,14 +137,19 @@
                                                                     student += '<td class="tdfatheroccupation">' + value.Fathers_Occupation + '</td>';
                                                                     student += '<td class="tdmother">' + value.Mothers_Name + '</td>';
                                                                     student += '<td class="tdmotheroccupation">' + value.Mothers_Occupation + '</td>';
-                                                                    student += '<td><button style="width: 100px; margin-left: 0px;" type="button" class="tdupdate bg-secondary" data-toggle="modal" data-target="#divModal">Update</button></td>';
+                                                                    student += '<td><button type="button" class="tdupdate bg-secondary" data-toggle="modal" data-target="#divModal">Update</button></td>';
                                                                     student += '</tbody>';
                                                                     student += '</tr>';
                                                                 });
                                                                 $('#tbltable').append(student);
+                                                                if(window.navigator.userAgent.indexOf("Mobile") > -1){
+                                                                     $(".tdDOB").hide(); $(".tdclass").hide();$(".tdcontact").hide(); $(".tdschool").hide(); $(".tdmotheroccupation").hide(); $(".tdmother").hide();$(".tdfather").hide();$(".tdfatheroccupation").hide(); console.log("it is mobile");}
+                                                                else{
+                                                                    console.log("it is desktop")};
     $(function () {
         $(".tdupdate").click(function() {
             var a = $(this).parents("tr").find(".tdname").text();
+            var b = $(this).parents("tr").find(".tdId").text();
             var c = $(this).parents("tr").find(".tdDOB").text();
             var d = $(this).parents("tr").find(".tdclass").text();
             var e = $(this).parents("tr").find(".tdschool").text();
@@ -146,8 +159,9 @@
             var i = $(this).parents("tr").find(".tdfatheroccupation").text();
             var j = $(this).parents("tr").find(".tdmother").text();
             var k = $(this).parents("tr").find(".tdmotheroccupation").text();
-
+            
             $("#inpname").val(a);
+            $("#inpId").val(b);
             $("#inpdob").val(c);
             $("#inpclass").val(d);
             $("#inpschool").val(e);
@@ -172,6 +186,7 @@
                     }
                 }
             } ?>
+            </table>
     </section>
     <script>
        $(document).ready(function() { 
@@ -194,23 +209,13 @@
                 <div class="modal-body">
                     <div class="contact-form">
                         <form method="post" action="getdetails.php">
-                            Name<input type="text" id="inpname" name='name' ><br>
+                            Id<input type="text" id="inpId" name='Id' readonly><br>
+                            Name<input type="text" id="inpname" name='name' readonly><br>
                             DOB <input type="date" id="inpdob" name='dob'><br>
                             Class<input type="number" id="inpclass" name='class' ><br>
                             School<input type="text" id="inpschool" name='school' ><br>
                             Number<input type="number" id="inpnumber" name="number" ><br>
-                            Camp&nbsp;<select id="inpcamp" name='camp' required>
-                                <option>Camp</option>
-                                <option>Samrat Chowk</option>
-                                <option>Sarvoday Nagar	</option>
-                                <option>RKGIT</option>
-                                <option>Charmurti</option>
-                                <option>Fortis</option>
-                                <option>Nursery Kids</option>
-                                <option>Kaushambi</option>
-                                <option>Mari Mata Temple</option>
-                                <option>Unnati</option>
-                            </select><br>
+                            Camp<input id="inpcamp" name='camp' readonly><br>
                             Father's Name<input type="text" id="inpfatherName" name="fatherName" required><br>
                             Occupation<input type="text" id="inpfatherOccupation" name="fatherOccupation" required><br>
                             Mother's Name<input type="text" id="inpmotherName" name="motherName" required><br>
@@ -225,5 +230,6 @@
             </div>
         </div>
     </div>
+    <?php require 'footer.html'?>
 </body>
 </html>

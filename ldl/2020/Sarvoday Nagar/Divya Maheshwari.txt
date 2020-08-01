@@ -1,1 +1,0 @@
-[{"Name":"Divya Maheshwari","class":"9","school":"D.A.V. Public School","camp":"Sarvoday Nagar","contact":"9027297393","DOB":"14\/08\/2000","Fathers_Name":"Pankaj Maheshwari","Fathers_Occupation":"Business","Mothers_Name":"Poonam Maheshwari","Mothers_Occupation":"Housewife"}]

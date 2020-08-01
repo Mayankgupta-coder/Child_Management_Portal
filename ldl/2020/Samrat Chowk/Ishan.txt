@@ -1,1 +1,0 @@
-[{"Name":"Ishan","class":"9","school":"LMA","camp":"Samrat Chowk","contact":"9387286489","DOB":"14\/08\/2001","Fathers_Name":"Arun Singh","Fathers_Occupation":"Business","Mothers_Name":"Ritu Singh","Mothers_Occupation":"Housewife"}]
