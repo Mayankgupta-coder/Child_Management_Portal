@@ -9,8 +9,8 @@ body{
     text-align: center;
 }
 .modal .modal-dialog .modal-content .modal-body .contact-form input{    
-    width:40rem;
-    margin:1rem;
+    width:30rem;
+    margin:0.6rem;
     font-size:1.6rem;
 }
 .modal .modal-dialog .modal-content button{
