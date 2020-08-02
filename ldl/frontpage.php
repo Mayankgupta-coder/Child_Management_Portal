@@ -7,7 +7,7 @@
         if($username==$user && $password==$pass)
         {
             $login = true;
-            setcookie('username',$username,time()+60*60*7);
+           
             session_start();
             $_SESSION['loggedin'] = true;
             $_SESSION['username'] = $username;
